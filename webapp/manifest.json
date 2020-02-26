@@ -63,6 +63,9 @@
 		"resources": {
 			"css": [{
 				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "model/moment-with-locales.js"
 			}]
 		},
 		"routing": {
