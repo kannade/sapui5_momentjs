@@ -15,16 +15,15 @@ sap.ui.define([
 				return "";
 			}
 
-			//Локализация - Россия
-			moment.locale("ru");
+			moment.locale("ru"); //Локализация - Россия
 
-			var nowDate = moment();
-			var date = moment(sValue);
-			var yesterday = moment(sValue).subtract(1, "days");
+			var nowDate = moment(); //Сегодня
+			var date = moment(sValue); //Дата, которая пришла в форматер
+			var yesterday = moment(sValue).subtract(1, "days"); //вычитаем день из пришедшей даты
 			
-			var oElem = this;
+			var oElem = this; //Запомним контекст, чтобы вызвать его в setInterval
 
-			if (nowDate.format("DD.MM.YY") === date.format("DD.MM.YY")) {
+			if (nowDate.format("DD.MM.YY") === date.format("DD.MM.YY")) { //Если текущий день
 				var diffMs = nowDate.diff(date);
 
 				if ((diffMs) <= (1000 * 60 * 60) && !Device.system.phone) {
@@ -47,9 +46,9 @@ sap.ui.define([
 				} else {
 					return date.format("HH:mm");
 				}
-			} else if (nowDate.format("DD.MM.YY") === yesterday.format("DD.MM.YY")) {
+			} else if (nowDate.format("DD.MM.YY") === yesterday.format("DD.MM.YY")) { //Вчера
 				return "Вчера";
-			} else {
+			} else { //В остальных случаях
 				return date.format("DD MMM");
 			}
 
